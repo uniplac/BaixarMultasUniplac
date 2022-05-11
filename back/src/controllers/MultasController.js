@@ -1,6 +1,4 @@
 const conectanobanco = require("../funcoes/database");
-const crypto = require("crypto");
-var jwt = require('jsonwebtoken');
 
 module.exports = {
 
