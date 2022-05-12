@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    BASEURL: 'http://localhost:3000/',
-    BACKEND: 'http://localhost:4448/',
+    BASEURL: 'https://baixar-multas-uniplac.vercel.app/',
+    BACKEND: 'http://api.uniplaclages.edu.br:4448/',
   },
 }
 
