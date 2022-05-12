@@ -28,12 +28,12 @@ export default function Home(multas) {
             <div>
               <label className={styles.labelLogin}>Usuario: </label>
               <br />
-              <input type="text" name="login" {...register("login")} className={styles.inputLogin} autoComplete="username"></input>
+              <input type="text" name="login" {...register("login")} className={styles.inputLogin} autoComplete="username" required></input>
             </div>
             <div>
               <label className={styles.labelLogin}>Senha: </label>
               <br />
-              <input type="password" name="password" {...register("password")} className={styles.inputLogin} autoComplete="current-password"></input>
+              <input type="password" name="password" {...register("password")} className={styles.inputLogin} autoComplete="current-password" required></input>
             </div>
             <span id="erro" className={styles.erro}></span>
             <button type="submit" className={styles.btnLogin}>ENTRAR</button>
@@ -54,14 +54,13 @@ async function Login(user) {
     'login': user.login,
     'password':user.password
   })
-  
   if(retorno.data.entry === 1){
     console.log("Logado")
-    setCookie(null, 'MB', retorno.data.name, {
-      maxAge: 1 * 60 * 62,
+    setCookie(null, 'MB', retorno.data.key, {
+      maxAge: 60 * 60,
       path: '/',
     });
-    Router.push(process.env.BASEURL)
+    Router.push("/")
   }else{
     var msg = document.getElementById("erro");
     msg.innerHTML = "Usuario ou senha iválido"

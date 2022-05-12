@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import React from 'react';
 import Router from 'next/router'
-import { parseCookies, setCookie, destroyCookie } from 'nookies'
+import { parseCookies } from 'nookies'
 import { removeCookies } from "cookies-next";
 
 export default function Home(multas) {
@@ -17,10 +17,10 @@ export default function Home(multas) {
     // during client's browser evaluation
     var cookies = parseCookies();
     if (cookies['MB']) {
-      
+      validacao(cookies['MB'])
     } else {
       document.getElementById("pagina").innerHTML = "<a href='login' style='text-align: center'>Sua sessão expirou<br/>clique aqui para logar novamente</a>"
-      Router.push(process.env.BASEURL + "login")
+      Router.push("/login")
       return (
         <Head>
           opa
@@ -39,7 +39,7 @@ export default function Home(multas) {
       <main className={styles.main} id="pagina">
         <a className={styles.btnLogout} onClick={(event) => logout()}>Logout</a>
         <div>
-          <h1>Lista de Multas</h1>
+          <h1>Lista de Multas da Biblioteca</h1>
           <table className={styles.tabela} id='tabela'>
             <thead>
               <tr className={styles.linha}>
@@ -54,7 +54,7 @@ export default function Home(multas) {
             </thead>
             <tbody id="tbody">
               {multas2.map(multa => {
-                return <tr className={styles.listaMulta}><td>{multa.num_titulo}</td><td>{multa.ra}</td><td>{multa.nome_pessoa}</td><td>{multa.data_emprestimo}</td><td>{multa.data_multa}</td><td>{multa.valor_multa}</td><td>{multa.flag_transporte}</td><td><button onClick={(event) => alteraMulta(multa, event)}>Baixar</button></td></tr>
+                return <tr className={styles.listaMulta}><td>{multa.num_titulo}</td><td>{multa.ra}</td><td className={styles.nomePessoa}>{multa.nome_pessoa}</td><td>{multa.data_emprestimo}</td><td>{multa.data_multa}</td><td>{multa.valor_multa}</td><td>{multa.flag_transporte}</td><td><button onClick={(event) => alteraMulta(multa, event)}>Baixar</button></td></tr>
               })}
             </tbody>
           </table>
@@ -68,9 +68,8 @@ export default function Home(multas) {
 }
 
 const logout = (a, b) => {
-  window.location.reload(); //alterar
-  //removeCookies("MB");
-  //Router.push(process.env.BASEURL)
+  removeCookies("MB");
+  Router.push("/login")
 }
 
 const alteraMulta = (a, b) => {
@@ -82,6 +81,18 @@ const alteraMulta = (a, b) => {
     window.location.reload();
   } else {
     return
+  }
+}
+
+async function validacao(cookie){
+  const retorno = await axios.post(process.env.BACKEND + 'Session', {
+    'key': cookie
+  })
+  console.log(retorno.data.key)
+  if(retorno.data.key === false){
+    document.getElementById("pagina").innerHTML = "<a href='login' style='text-align: center'>Sua sessão expirou<br/>clique aqui para logar novamente</a>"
+    removeCookies("MB");
+    Router.push("/login");
   }
 }
 

@@ -10,6 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #eaf4ff;
 }
 
 .footer {
@@ -118,21 +119,24 @@
 
 
 .tabela{
-  background-color: rgb(139, 139, 139);
+  background-color: #04787c;
 }
 
 .coluna{
   text-align: start;
   padding-right: 50px;
+  background-color: rgba(224, 238, 255, 0.555)
 }
 
 .tabela tr{border:1px black solid}
          
 /*Definido cor das linhas pares*/
-.tabela tr:nth-child(even) {background: #FFF; text-align: center; height:50px}
+.tabela tr:nth-child(even) {background: #ebf7f8; text-align: center; height:50px}
+.tabela tr:nth-child(even):hover {background: #d0e0eb;}
  
 /*Definindo cor das Linhas impáres*/
-.tabela tr:nth-child(odd) {background: rgb(207, 207, 207); text-align: center;height:50px}  
+.tabela tr:nth-child(odd) {background: #e1ecd6; text-align: center;height:50px}  
+.tabela tr:nth-child(odd):hover {background: #d0e0eb;}  
 
 .loginBox{
   display: flex;
@@ -203,7 +207,7 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #de7571;
+  background-color: #ac00008a;
   border: none;
   border-radius:8px
 }
@@ -216,4 +220,9 @@
 .erro{
   color: rgb(192, 65, 65);
   font-size: 15px;
+}
+
+.nomePessoa{
+  text-align: start;
+  padding-left:10px
 }
