@@ -1,4 +1,4 @@
-import Head from 'next/Head'
+import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import React from 'react';
