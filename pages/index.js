@@ -85,7 +85,7 @@ const alteraMulta = (a, b) => {
 }
 
 async function validacao(cookie){
-  const retorno = await axios.post(process.env.BACKEND + 'Session', {
+  const retorno = await axios.post('http://api.uniplaclages.edu.br:4448/Session', {
     'key': cookie
   })
   console.log(retorno.data.key)
@@ -97,14 +97,14 @@ async function validacao(cookie){
 }
 
 async function baixaMulta(item) {
-  await axios.post(process.env.BACKEND + 'AlteraStatus', {
+  await axios.post('http://api.uniplaclages.edu.br:4448/AlteraStatus', {
     'COD': item
   })
   console.log("Removeu multa " + item);
 }
 
 export async function getServerSideProps(context) {
-  var multas = await axios.get(process.env.BACKEND + 'Lista')
+  var multas = await axios.get('http://api.uniplaclages.edu.br:4448/Lista')
 
   multas = multas.data
 
