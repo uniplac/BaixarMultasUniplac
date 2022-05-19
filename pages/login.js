@@ -56,7 +56,7 @@ async function Login(user) {
   //  'login': nome,
   //  'password':senha
   //})
-  console.log(nome, senha)
+  console.log(console.log(user.nome))
   //if(retorno.data.entry === 1){
   //  console.log("Logado")
   //  setCookie(null, 'MB', retorno.data.key, {
