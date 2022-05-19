@@ -55,15 +55,16 @@ async function Login(user) {
     'login': user.login,
     'password':user.password
   })
-  if(retorno.data.entry === 1){
-    console.log("Logado")
-    setCookie(null, 'MB', retorno.data.key, {
-      maxAge: 60 * 60,
-      path: '/',
-    });
-    Router.push("/ola")
-  }else{
-    var msg = document.getElementById("erro");
-    msg.innerHTML = "Usuario ou senha iválido"
-  }
+  console.log(retorno)
+  //if(retorno.data.entry === 1){
+  //  console.log("Logado")
+  //  setCookie(null, 'MB', retorno.data.key, {
+  //    maxAge: 60 * 60,
+  //    path: '/',
+  //  });
+  //  Router.push("/ola")
+  //}else{
+  //  var msg = document.getElementById("erro");
+  //  msg.innerHTML = "Usuario ou senha iválido"
+  //}
 }
