@@ -50,10 +50,11 @@ export default function Home(multas) {
 }
 
 async function Login(user) {
-  
+  var nome = user.nome
+  var senha = user.senha
   const retorno = await axios.post('http://api.uniplaclages.edu.br:4448/Login', {
-    'login': user.login,
-    'password':user.password
+    'login': nome,
+    'password':senha
   })
   console.log(retorno)
   //if(retorno.data.entry === 1){
