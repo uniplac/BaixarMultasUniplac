@@ -50,13 +50,11 @@ export default function Home(multas) {
 }
 
 async function Login(user) {
-  var nome = user.nome
-  var senha = user.senha
+  console.log(user)
   //const retorno = await axios.post('http://api.uniplaclages.edu.br:4448/Login', {
   //  'login': nome,
   //  'password':senha
   //})
-  console.log(console.log(user.nome))
   //if(retorno.data.entry === 1){
   //  console.log("Logado")
   //  setCookie(null, 'MB', retorno.data.key, {
