@@ -23,6 +23,7 @@ export default function Home(multas) {
       Router.push("/login")
       return (
         <Head>
+          <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
           opa
         </Head>
       );
@@ -35,6 +36,7 @@ export default function Home(multas) {
         <title>Multas Biblioteca</title>
         <meta content="Multas" />
         <link rel="icon" href="/logo.ico" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
       </Head>
       <main className={styles.main} id="pagina">
         <a className={styles.btnLogout} onClick={(event) => logout()}>Logout</a>
