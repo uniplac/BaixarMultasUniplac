@@ -20,7 +20,7 @@ export default function Home(multas) {
       validacao(cookies['MB'])
     } else {
       document.getElementById("pagina").innerHTML = "<a href='login' style='text-align: center'>Sua sessão expirou<br/>clique aqui para logar novamente</a>"
-      Router.push("/login")
+      //Router.push("/login")
       return (
         <Head>
           <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
