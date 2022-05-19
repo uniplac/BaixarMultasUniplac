@@ -34,6 +34,7 @@ export default function Home(multas) {
       <Head>
         <title>Multas Biblioteca</title>
         <meta content="Multas" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <link rel="icon" href="/logo.ico" />
       </Head>
       <main className={styles.main} id="pagina">
