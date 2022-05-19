@@ -62,7 +62,7 @@ async function Login(user) {
       maxAge: 60 * 60,
       path: '/',
     });
-    Router.push("/ola")
+    Router.push("/")
   }else{
     var msg = document.getElementById("erro");
     msg.innerHTML = "Usuario ou senha iválido"
